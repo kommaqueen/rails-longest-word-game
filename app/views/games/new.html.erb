@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <h1>New Game</h1>
+  <div class="alphabet">
+    <% @letters.each do |letter| %>
+      <span class="letter-box"><%= letter %> </span>
+    <% end %>
+  </div>
+
+  <div class="form-wrapper">
+    <form action="/score" method="post" data-turbo="false" class="form-inline mt-4">
+      <label for="user-input"></label>
+      <input type="text" class="form-control" id="user-input" name="word" placeholder="Enter a word">
+      <button type="submit" class="btn btn-info ask-btn" value="Play!">Play</button>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </form>
+  </div>
+</div>
